@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://butms70t75l7k"]
+
+[ext_resource type="Texture2D" uid="uid://bsdgcit8uubk8" path="res://Assets/Sprites & Textures/Characters/Kris.png" id="1_66m71"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66m71"]
+atlas = ExtResource("1_66m71")
+region = Rect2(0, 172, 39, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8s7s"]
+atlas = ExtResource("1_66m71")
+region = Rect2(39, 172, 39, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm3ap"]
+atlas = ExtResource("1_66m71")
+region = Rect2(0, 129, 39, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlet3"]
+atlas = ExtResource("1_66m71")
+region = Rect2(39, 129, 39, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gly5l"]
+atlas = ExtResource("1_66m71")
+region = Rect2(0, 0, 39, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7s45"]
+atlas = ExtResource("1_66m71")
+region = Rect2(0, 86, 39, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bot8p"]
+atlas = ExtResource("1_66m71")
+region = Rect2(39, 86, 39, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8epq"]
+atlas = ExtResource("1_66m71")
+region = Rect2(0, 43, 39, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8s7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66m71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8s7s")
+}],
+"loop": true,
+"name": &"alt_note",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mm3ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlet3")
+}],
+"loop": true,
+"name": &"high_note",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gly5l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7s45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bot8p")
+}],
+"loop": true,
+"name": &"low_note",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8epq")
+}],
+"loop": true,
+"name": &"ready",
+"speed": 5.0
+}]
+
+[node name="Kris" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -21.5)
+sprite_frames = SubResource("SpriteFrames_a8s7s")
+animation = &"high_note"
+autoplay = "idle"
+frame_progress = 0.308798

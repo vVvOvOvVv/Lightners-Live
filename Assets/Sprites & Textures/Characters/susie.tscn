@@ -1,0 +1,106 @@
+[gd_scene load_steps=13 format=3 uid="uid://pkx5re5m4edk"]
+
+[ext_resource type="Texture2D" uid="uid://cvtcihkobnx0w" path="res://Assets/Sprites & Textures/Characters/Susie.png" id="1_thi8w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cuxxy"]
+atlas = ExtResource("1_thi8w")
+region = Rect2(0, 126, 68, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7k0r"]
+atlas = ExtResource("1_thi8w")
+region = Rect2(68, 126, 68, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxw3a"]
+atlas = ExtResource("1_thi8w")
+region = Rect2(0, 0, 68, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dma6d"]
+atlas = ExtResource("1_thi8w")
+region = Rect2(0, 189, 68, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_daept"]
+atlas = ExtResource("1_thi8w")
+region = Rect2(68, 189, 68, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl2nu"]
+atlas = ExtResource("1_thi8w")
+region = Rect2(136, 189, 68, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uas42"]
+atlas = ExtResource("1_thi8w")
+region = Rect2(204, 189, 68, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp5un"]
+atlas = ExtResource("1_thi8w")
+region = Rect2(272, 189, 68, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgad1"]
+atlas = ExtResource("1_thi8w")
+region = Rect2(340, 189, 68, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrkhp"]
+atlas = ExtResource("1_thi8w")
+region = Rect2(0, 63, 68, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7d8if"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cuxxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7k0r")
+}],
+"loop": true,
+"name": &"clap",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxw3a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dma6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_daept")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl2nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uas42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp5un")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgad1")
+}],
+"loop": true,
+"name": &"note",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrkhp")
+}],
+"loop": true,
+"name": &"ready",
+"speed": 5.0
+}]
+
+[node name="Susie" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -31.5)
+sprite_frames = SubResource("SpriteFrames_7d8if")
+animation = &"note"
+autoplay = "idle"
+frame_progress = 0.580322

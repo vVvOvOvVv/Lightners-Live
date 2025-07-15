@@ -1,0 +1,99 @@
+[gd_scene load_steps=12 format=3 uid="uid://bw3p0ot44s3v2"]
+
+[ext_resource type="Texture2D" uid="uid://bus5qryji4amn" path="res://Assets/Sprites & Textures/Characters/Ralsei.png" id="1_02sd4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0jnl"]
+atlas = ExtResource("1_02sd4")
+region = Rect2(0, 46, 31, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjqh8"]
+atlas = ExtResource("1_02sd4")
+region = Rect2(31, 46, 31, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2u0r"]
+atlas = ExtResource("1_02sd4")
+region = Rect2(62, 46, 31, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtbpd"]
+atlas = ExtResource("1_02sd4")
+region = Rect2(0, 0, 31, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6w28"]
+atlas = ExtResource("1_02sd4")
+region = Rect2(0, 138, 31, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0lt8"]
+atlas = ExtResource("1_02sd4")
+region = Rect2(0, 92, 31, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aduls"]
+atlas = ExtResource("1_02sd4")
+region = Rect2(31, 92, 31, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye0nt"]
+atlas = ExtResource("1_02sd4")
+region = Rect2(62, 92, 31, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apxaj"]
+atlas = ExtResource("1_02sd4")
+region = Rect2(93, 92, 31, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_807aj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0jnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjqh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2u0r")
+}],
+"loop": true,
+"name": &"clap",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtbpd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6w28")
+}],
+"loop": true,
+"name": &"shock",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0lt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aduls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye0nt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apxaj")
+}],
+"loop": true,
+"name": &"sing",
+"speed": 5.0
+}]
+
+[node name="Ralsei" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -23)
+sprite_frames = SubResource("SpriteFrames_807aj")
+animation = &"sing"
+autoplay = "idle"
+frame_progress = 0.805551

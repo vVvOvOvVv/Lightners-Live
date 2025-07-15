@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3fw388vlphjy"]
+[gd_scene load_steps=5 format=3 uid="uid://d3fw388vlphjy"]
 
 [ext_resource type="PackedScene" uid="uid://dslpwxbcf8qh6" path="res://Assets/Sprites & Textures/BG/bg.tscn" id="1_ebmjs"]
+[ext_resource type="PackedScene" uid="uid://butms70t75l7k" path="res://Assets/Sprites & Textures/Characters/kris.tscn" id="2_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://pkx5re5m4edk" path="res://Assets/Sprites & Textures/Characters/susie.tscn" id="3_3dryh"]
+[ext_resource type="PackedScene" uid="uid://bw3p0ot44s3v2" path="res://Assets/Sprites & Textures/Characters/ralsei.tscn" id="4_3dryh"]
 
 [node name="Game" type="Node2D"]
 
 [node name="BG" parent="." instance=ExtResource("1_ebmjs")]
 position = Vector2(320, 240)
+
+[node name="Fun Gang" type="Node" parent="."]
+
+[node name="Kris" parent="Fun Gang" instance=ExtResource("2_wrm1d")]
+position = Vector2(320, 304)
+
+[node name="Susie" parent="Fun Gang" instance=ExtResource("3_3dryh")]
+position = Vector2(160, 264)
+
+[node name="Ralsei" parent="Fun Gang" instance=ExtResource("4_3dryh")]
+position = Vector2(498, 264)
