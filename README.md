@@ -16,3 +16,5 @@ Rhythm game controls:
   6. Left & right (D-Pad)
   7. Bottom (XBox A/X/Nintendo B) and right (XBox B/Circle/Nintendo A)
   8. Or any combination of the above!
+
+Copyright under Toby Fox!
