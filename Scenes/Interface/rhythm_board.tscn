@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://dws1o24c7b1nv"]
+
+[ext_resource type="Texture2D" uid="uid://cvqfxni7slbke" path="res://Assets/Sprites & Textures/UI/RhythmBoard.png" id="1_fly2t"]
+[ext_resource type="Script" uid="uid://d0chgrdv86jj3" path="res://Scripts/rhythm_controls.gd" id="2_c4y48"]
+[ext_resource type="Texture2D" uid="uid://qrdtsa2mdm0f" path="res://Assets/Sprites & Textures/UI/Notes.png" id="3_11rrp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shkxh"]
+atlas = ExtResource("3_11rrp")
+region = Rect2(13, 4, 13, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3xcl"]
+atlas = ExtResource("3_11rrp")
+region = Rect2(0, 4, 13, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2knal"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shkxh")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3xcl")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0g5n1"]
+size = Vector2(13, 1.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhcle"]
+atlas = ExtResource("3_11rrp")
+region = Rect2(13, 12, 13, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0bix"]
+atlas = ExtResource("3_11rrp")
+region = Rect2(0, 12, 13, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vrb88"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhcle")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0bix")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_naoqe"]
+size = Vector2(13, 1.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4y48"]
+size = Vector2(30, 3.5)
+
+[node name="RhythmBoard" type="Sprite2D"]
+position = Vector2(0, -178)
+scale = Vector2(4, 4)
+texture = ExtResource("1_fly2t")
+script = ExtResource("2_c4y48")
+
+[node name="Right Hit" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, 34)
+sprite_frames = SubResource("SpriteFrames_2knal")
+animation = &"hit"
+autoplay = "idle"
+
+[node name="R Area" type="Area2D" parent="Right Hit"]
+
+[node name="R HitBox" type="CollisionShape2D" parent="Right Hit/R Area"]
+shape = SubResource("RectangleShape2D_0g5n1")
+
+[node name="Left Hit" type="AnimatedSprite2D" parent="."]
+position = Vector2(-7, 34)
+sprite_frames = SubResource("SpriteFrames_vrb88")
+animation = &"hit"
+autoplay = "idle"
+
+[node name="L Area" type="Area2D" parent="Left Hit"]
+
+[node name="L HitBox" type="CollisionShape2D" parent="Left Hit/L Area"]
+shape = SubResource("RectangleShape2D_naoqe")
+
+[node name="Miss Area" type="Area2D" parent="."]
+
+[node name="Miss HitBox" type="CollisionShape2D" parent="Miss Area"]
+position = Vector2(0, 42.75)
+shape = SubResource("RectangleShape2D_c4y48")

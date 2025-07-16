@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://boik5bbr2k0ok"]
+
+[ext_resource type="Texture2D" uid="uid://qrdtsa2mdm0f" path="res://Assets/Sprites & Textures/UI/Notes.png" id="1_1qbgj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gd5w"]
+size = Vector2(12, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qbgj"]
+size = Vector2(12, 1)
+
+[node name="Right Note" type="Sprite2D"]
+position = Vector2(0, -2)
+texture = ExtResource("1_1qbgj")
+hframes = 3
+vframes = 4
+
+[node name="Perfect Area" type="Area2D" parent="."]
+
+[node name="Perfect Collision" type="CollisionShape2D" parent="Perfect Area"]
+shape = SubResource("RectangleShape2D_7gd5w")
+
+[node name="Late Area" type="Area2D" parent="."]
+
+[node name="Late Collision" type="CollisionShape2D" parent="Late Area"]
+position = Vector2(0, -0.755)
+shape = SubResource("RectangleShape2D_1qbgj")
+debug_color = Color(0.803831, 0.379158, 0.468387, 0.42)
+
+[node name="Early Area" type="Area2D" parent="."]
+
+[node name="Early Collision" type="CollisionShape2D" parent="Early Area"]
+position = Vector2(0, 0.745)
+shape = SubResource("RectangleShape2D_1qbgj")
+debug_color = Color(0.803831, 0.379158, 0.468387, 0.42)

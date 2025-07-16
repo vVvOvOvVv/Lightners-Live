@@ -1,24 +1,24 @@
 extends CharacterBody2D
 
-enum global_states {MENU, SONG_SELECT, PERFORM} 
 # menu == 0, song == 1, perform == 2
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var rhythm_board: Sprite2D = $"../../RhythmBoard"
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	Global.GAME_STATE = global_states.PERFORM
+	Global.GAME_STATE = Global.STATES.PERFORM
 	Global.IS_ALT_NOTE = false
 	Engine.max_fps = 30
+	# rhythm_board.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# apparently Godot's version of switch-case is match
 	match Global.GAME_STATE:
-		global_states.MENU:
+		Global.STATES.MENU:
 			pass
-		global_states.SONG_SELECT:
+		Global.STATES.SONG_SELECT:
 			pass
-		global_states.PERFORM:
+		Global.STATES.PERFORM:
 			_perform_input()
 		_: # error handling
 			push_error("The forbidden state has been achieved")
@@ -36,7 +36,7 @@ func _perform_input() -> void:
 		else:
 			animated_sprite.play("low_note_up")
 	# high/right notes
-	elif Input.is_action_just_pressed("right note"):
+	if Input.is_action_just_pressed("right note"):
 		if Global.IS_ALT_NOTE:
 			animated_sprite.play("alt_note_down")
 		else:
@@ -48,3 +48,16 @@ func _perform_input() -> void:
 			animated_sprite.play("high_note_up")
 			
 	# misc. inputs
+
+func _hit_note():
+	pass
+
+func _enter_menu():
+	pass
+
+func _enter_song_select():
+	pass
+
+func _enter_perform():
+	Global.GAME_STATE = Global.STATES.PERFORM
+	rhythm_board.visible = true
