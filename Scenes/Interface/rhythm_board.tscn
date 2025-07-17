@@ -68,12 +68,15 @@ size = Vector2(13, 1.5)
 size = Vector2(30, 3.5)
 
 [node name="RhythmBoard" type="Sprite2D"]
+visibility_layer = 4
 position = Vector2(0, -178)
 scale = Vector2(4, 4)
 texture = ExtResource("1_fly2t")
+hframes = 2
 script = ExtResource("2_c4y48")
 
 [node name="Right Hit" type="AnimatedSprite2D" parent="."]
+visibility_layer = 16
 z_index = 1
 position = Vector2(7, 34)
 sprite_frames = SubResource("SpriteFrames_2knal")
@@ -86,6 +89,7 @@ autoplay = "idle"
 shape = SubResource("RectangleShape2D_0g5n1")
 
 [node name="Left Hit" type="AnimatedSprite2D" parent="."]
+visibility_layer = 16
 z_index = 1
 position = Vector2(-7, 34)
 sprite_frames = SubResource("SpriteFrames_vrb88")
@@ -102,3 +106,10 @@ shape = SubResource("RectangleShape2D_naoqe")
 [node name="Miss HitBox" type="CollisionShape2D" parent="Miss Area"]
 position = Vector2(0, 42.75)
 shape = SubResource("RectangleShape2D_c4y48")
+
+[node name="Frame" type="Sprite2D" parent="."]
+visibility_layer = 16
+z_index = -1
+texture = ExtResource("1_fly2t")
+hframes = 2
+frame = 1
