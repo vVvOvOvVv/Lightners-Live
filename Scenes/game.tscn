@@ -15,10 +15,11 @@ position = Vector2(-1, 70)
 [node name="Background" type="Node" parent="."]
 
 [node name="BG" parent="Background" instance=ExtResource("1_ebmjs")]
+z_index = -2
 position = Vector2(319.5, 397.5)
 
 [node name="BG Extension" type="Sprite2D" parent="Background"]
-z_index = -1
+z_index = -3
 position = Vector2(316.75, 89.25)
 scale = Vector2(9.51408, 5.2027)
 texture = ExtResource("2_v158k")
@@ -26,14 +27,17 @@ texture = ExtResource("2_v158k")
 [node name="Fun Gang" type="Node" parent="."]
 
 [node name="Kris" parent="Fun Gang" instance=ExtResource("2_wrm1d")]
+visibility_layer = 2
 z_index = 1
 position = Vector2(319.5, 461.5)
 
 [node name="Susie" parent="Fun Gang" instance=ExtResource("3_3dryh")]
+visibility_layer = 2
 z_index = 1
 position = Vector2(159.5, 421.5)
 
 [node name="Ralsei" parent="Fun Gang" instance=ExtResource("4_3dryh")]
+visibility_layer = 2
 z_index = 1
 position = Vector2(497.5, 421.5)
 
@@ -41,12 +45,15 @@ position = Vector2(497.5, 421.5)
 z_index = 1
 position = Vector2(321.5, 119)
 
+[node name="Note Holder" type="Node" parent="."]
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320.515, 170)
 
 [node name="Quit Handling" type="Node" parent="."]
 
 [node name="QuitLabel" type="Label" parent="Quit Handling"]
+visibility_layer = 32
 texture_filter = 1
 offset_left = 8.0
 offset_top = -2.0

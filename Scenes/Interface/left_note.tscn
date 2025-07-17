@@ -18,11 +18,15 @@ vframes = 4
 frame = 6
 
 [node name="Perfect Area" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Perfect Collision" type="CollisionShape2D" parent="Perfect Area"]
 shape = SubResource("RectangleShape2D_7gd5w")
 
 [node name="Late Area" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
 
 [node name="Late Collision" type="CollisionShape2D" parent="Late Area"]
 position = Vector2(0, -0.755)
@@ -30,6 +34,8 @@ shape = SubResource("RectangleShape2D_1qbgj")
 debug_color = Color(0.803831, 0.379158, 0.468387, 0.42)
 
 [node name="Early Area" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
 
 [node name="Early Collision" type="CollisionShape2D" parent="Early Area"]
 position = Vector2(0, 0.745)

@@ -107,6 +107,9 @@ down={
 2d_render/layer_4="Notes"
 2d_render/layer_5="Board Frame"
 2d_render/layer_6="UI"
+2d_physics/layer_1="Note"
+2d_physics/layer_2="Perfect"
+2d_physics/layer_3="Almost"
 
 [rendering]
 
