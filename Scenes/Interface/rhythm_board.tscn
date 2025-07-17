@@ -74,6 +74,7 @@ texture = ExtResource("1_fly2t")
 script = ExtResource("2_c4y48")
 
 [node name="Right Hit" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(7, 34)
 sprite_frames = SubResource("SpriteFrames_2knal")
 animation = &"hit"
@@ -85,6 +86,7 @@ autoplay = "idle"
 shape = SubResource("RectangleShape2D_0g5n1")
 
 [node name="Left Hit" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(-7, 34)
 sprite_frames = SubResource("SpriteFrames_vrb88")
 animation = &"hit"

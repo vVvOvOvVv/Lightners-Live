@@ -19,11 +19,11 @@ func _process(delta: float) -> void:
 		Global.STATES.SONG_SELECT:
 			pass
 		Global.STATES.PERFORM:
-			_perform_input()
+			perform_input()
 		_: # error handling
 			push_error("The forbidden state has been achieved")
 			
-func _perform_input() -> void:
+func perform_input() -> void:
 	# low/left notes
 	if Input.is_action_just_pressed("left note"):
 		if Global.IS_ALT_NOTE:
@@ -49,15 +49,15 @@ func _perform_input() -> void:
 			
 	# misc. inputs
 
-func _hit_note():
+func hit_note():
 	pass
 
-func _enter_menu():
+func enter_menu():
 	pass
 
-func _enter_song_select():
+func enter_song_select():
 	pass
 
-func _enter_perform():
+func enter_perform():
 	Global.GAME_STATE = Global.STATES.PERFORM
 	rhythm_board.visible = true

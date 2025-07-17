@@ -10,11 +10,10 @@ func _ready():
 	l_area.disabled = true
 
 func _process(_delta: float) -> void:
-	print(l_area.disabled)
 	if Global.GAME_STATE == Global.STATES.PERFORM:
-		_input_handler()
+		input_handler()
 	
-func _input_handler():
+func input_handler():
 	if Input.is_action_just_pressed("left note"):
 		l_sprite.play("hit")
 		if l_area.disabled:
