@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3fw388vlphjy"]
+[gd_scene load_steps=12 format=3 uid="uid://d3fw388vlphjy"]
 
 [ext_resource type="PackedScene" uid="uid://dslpwxbcf8qh6" path="res://Scenes/bg.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://dh6dpmvkmqrce" path="res://Scripts/quit_handler.gd" id="1_i6g32"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bw3p0ot44s3v2" path="res://Scenes/Characters/ralsei.tscn" id="4_3dryh"]
 [ext_resource type="PackedScene" uid="uid://dws1o24c7b1nv" path="res://Scenes/Interface/rhythm_board.tscn" id="5_1l0tm"]
 [ext_resource type="FontFile" uid="uid://gee05d7cqp85" path="res://Assets/Fonts/undertale-deltarune-text-font-extended.otf" id="5_wowpa"]
+[ext_resource type="MidiResource" uid="uid://bn61clf1oa1fy" path="res://Assets/Audio/Music/Hopes and Dreams.mid" id="9_o5yvi"]
+[ext_resource type="Script" uid="uid://bf6nimabwdao0" path="res://Scenes/midi_handler.gd" id="10_o5yvi"]
+[ext_resource type="AudioStream" uid="uid://bdk2xw3t8hyvw" path="res://Assets/Audio/Music/Hopes and Dreams.mp3" id="11_rku1e"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(-1, 70)
@@ -22,6 +25,13 @@ position = Vector2(319.5, 397.5)
 z_index = -3
 position = Vector2(316.75, 89.25)
 scale = Vector2(9.51408, 5.2027)
+texture = ExtResource("2_v158k")
+
+[node name="Notes Cover" type="Sprite2D" parent="Background/BG Extension"]
+visibility_layer = 16
+z_index = -3
+position = Vector2(-2.07587, -26.9572)
+scale = Vector2(1.10141, 0.642907)
 texture = ExtResource("2_v158k")
 
 [node name="Fun Gang" type="Node" parent="."]
@@ -45,7 +55,25 @@ position = Vector2(497.5, 421.5)
 z_index = 1
 position = Vector2(321.5, 119)
 
-[node name="Note Holder" type="Node" parent="."]
+[node name="Notes" type="Node" parent="."]
+
+[node name="Left Holder" type="Node2D" parent="Notes"]
+visibility_layer = 9
+position = Vector2(292.5, 7.865)
+scale = Vector2(4, 4)
+
+[node name="Right Holder" type="Node2D" parent="Notes"]
+visibility_layer = 9
+position = Vector2(348.52, 7.865)
+scale = Vector2(4, 4)
+
+[node name="Left End" type="Node2D" parent="Notes"]
+visibility_layer = 9
+position = Vector2(292.5, 324.965)
+
+[node name="Right End" type="Node2D" parent="Notes"]
+visibility_layer = 9
+position = Vector2(348.52, 324.965)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320.515, 170)
@@ -69,4 +97,16 @@ metadata/_edit_use_anchors_ = true
 wait_time = 3.0
 script = ExtResource("1_i6g32")
 
+[node name="MidiPlayer" type="MidiPlayer" parent="."]
+midi = ExtResource("9_o5yvi")
+script = ExtResource("10_o5yvi")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MidiPlayer"]
+position = Vector2(320, 239)
+stream = ExtResource("11_rku1e")
+volume_db = 1.266
+
+[node name="Audio Delay" type="Timer" parent="MidiPlayer"]
+
 [connection signal="timeout" from="Quit Handling/QuitTimer" to="Quit Handling/QuitTimer" method="quit_game"]
+[connection signal="timeout" from="MidiPlayer/Audio Delay" to="MidiPlayer" method="play_audio"]

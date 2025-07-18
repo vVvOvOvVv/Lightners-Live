@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://boik5bbr2k0ok"]
+[gd_scene load_steps=5 format=3 uid="uid://boik5bbr2k0ok"]
 
 [ext_resource type="Texture2D" uid="uid://qrdtsa2mdm0f" path="res://Assets/Sprites & Textures/UI/Notes.png" id="1_1qbgj"]
+[ext_resource type="Script" uid="uid://65j0o6j16uv6" path="res://Scripts/note.gd" id="2_7gd5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gd5w"]
 size = Vector2(12, 0.5)
@@ -11,10 +12,10 @@ size = Vector2(12, 1)
 [node name="Right Note" type="Sprite2D"]
 visibility_layer = 8
 z_index = 2
-position = Vector2(0, -2)
 texture = ExtResource("1_1qbgj")
 hframes = 3
 vframes = 4
+script = ExtResource("2_7gd5w")
 
 [node name="Perfect Area" type="Area2D" parent="."]
 collision_layer = 3
