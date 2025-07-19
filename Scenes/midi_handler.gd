@@ -12,7 +12,7 @@ const RIGHT_NOTE = preload("res://Scenes/Interface/right_note.tscn")
 @onready var audio_delay: Timer = $"Audio Delay"
 
 func _ready():
-	audio_delay.wait_time = Global.AUDIO_DELAY
+	audio_delay.wait_time = 1.0
 	audio_delay.one_shot = true
 	audio_delay.start()
 	

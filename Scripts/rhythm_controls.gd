@@ -4,6 +4,8 @@ extends Sprite2D
 @onready var r_sprite: AnimatedSprite2D = $"Right Hit"
 @onready var r_area: CollisionShape2D = $"Right Hit/R Area/R HitBox"
 @onready var l_area: CollisionShape2D = $"Left Hit/L Area/L HitBox"
+@onready var r_fx: AnimatedSprite2D = $"Right Hit/Hit FX"
+@onready var l_fx: AnimatedSprite2D = $"Left Hit/Hit FX"
 
 func _ready():
 	r_area.disabled = true
@@ -31,4 +33,10 @@ func input_handler():
 		r_sprite.play("idle")
 		if !r_area.disabled:
 			r_area.disabled = true
-			
+
+func miss_area(area: Area2D):
+	area.get_parent().queue_free()
+	if area.get_meta("isRight"):
+		r_fx.play("miss")
+	else:
+		l_fx.play("miss")
